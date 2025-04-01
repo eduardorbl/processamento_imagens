@@ -1,11 +1,3 @@
-'''
-1.1 Esboço a Lápis
-Implementar um efeito de esboço a lápis em uma imagem por meio dos seguintes passos: 
-(i) converter a imagem colorida para níveis de cinza, 
-(ii) aplicar um filtro de desfoque gaussiano (por exemplo, com uma máscara de 21×21 pixels) para suavizar os detalhes da imagem e 
-(iii) dividir a imagem em tons de cinza pela versão desfocada para realçar os contornos.
-'''
-
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
