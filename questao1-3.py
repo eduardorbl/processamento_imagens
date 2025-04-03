@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 img = np.array(Image.open('baboon_monocromatica.png').convert('L'))
 
 # Obtém a altura e largura da imagem
-altura, largura = img.shape3
+altura, largura = img.shape
 
 # Calcula a altura e largura de cada bloco (dividindo a imagem em 4x4 blocos)
 altura_bloco = altura // 4
