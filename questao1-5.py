@@ -16,7 +16,7 @@ sepia_matrix = np.array([
 sepia_img = np.dot(img, sepia_matrix.T)
 
 # Normaliza os valores da imagem sépia para o intervalo [0, 255]
-sepia_img = (sepia_img - sepia_img.min()) / (sepia_img.max() - sepia_img.min()) * 255
+sepia_img = np.interp(sepia_img, (sepia_img.min(), sepia_img.max()), (0, 255))
 sepia_img = sepia_img.astype(np.uint8)  # Converte os valores para inteiros de 8 bits
 
 # Configura o tamanho da figura para exibição
@@ -36,7 +36,7 @@ plt.axis('off')  # Remove os eixos
 
 # Converte a imagem original para escala de cinza
 gray = np.dot(img, [0.299, 0.587, 0.114])  # Fórmula para conversão em escala de cinza
-gray = (gray - gray.min()) / (gray.max() - gray.min()) * 255  # Normaliza os valores
+gray = np.interp(gray, (gray.min(), gray.max()), (0, 255))  # Normaliza os valores usando interp
 gray = gray.astype(np.uint8)  # Converte os valores para inteiros de 8 bits
 
 # Exibe a imagem em escala de cinza

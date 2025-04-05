@@ -15,37 +15,33 @@ bin5 = 0b00100000
 bin6 = 0b01000000
 bin7 = 0b10000000  # Máscara para o bit mais significativo (MSB)
 
-# Extrai o bit 0 da imagem e normaliza para o intervalo [0, 255]
-img0 = np.bitwise_and(img, bin0)
-img0 = (img0 - img0.min()) / (img0.max() - img0.min()) * 255
+# Função para normalizar os valores para o intervalo [0, 255]
+def normalize(img):
+    return np.interp(img, (img.min(), img.max()), (0, 255))
 
-# Extrai o bit 1 da imagem e normaliza para o intervalo [0, 255]
-img1 = np.bitwise_and(img, bin1)
-img1 = (img1 - img1.min()) / (img1.max() - img1.min()) * 255
+# Extrai e normaliza o bit 0 da imagem
+img0 = normalize(np.bitwise_and(img, bin0))
 
-# Extrai o bit 2 da imagem e normaliza para o intervalo [0, 255]
-img2 = np.bitwise_and(img, bin2)
-img2 = (img2 - img2.min()) / (img2.max() - img2.min()) * 255
+# Extrai e normaliza o bit 1 da imagem
+img1 = normalize(np.bitwise_and(img, bin1))
 
-# Extrai o bit 3 da imagem e normaliza para o intervalo [0, 255]
-img3 = np.bitwise_and(img, bin3)
-img3 = (img3 - img3.min()) / (img3.max() - img3.min()) * 255
+# Extrai e normaliza o bit 2 da imagem
+img2 = normalize(np.bitwise_and(img, bin2))
 
-# Extrai o bit 4 da imagem e normaliza para o intervalo [0, 255]
-img4 = np.bitwise_and(img, bin4)
-img4 = (img4 - img4.min()) / (img4.max() - img4.min()) * 255
+# Extrai e normaliza o bit 3 da imagem
+img3 = normalize(np.bitwise_and(img, bin3))
 
-# Extrai o bit 5 da imagem e normaliza para o intervalo [0, 255]
-img5 = np.bitwise_and(img, bin5)
-img5 = (img5 - img5.min()) / (img5.max() - img5.min()) * 255
+# Extrai e normaliza o bit 4 da imagem
+img4 = normalize(np.bitwise_and(img, bin4))
 
-# Extrai o bit 6 da imagem e normaliza para o intervalo [0, 255]
-img6 = np.bitwise_and(img, bin6)
-img6 = (img6 - img6.min()) / (img6.max() - img6.min()) * 255
+# Extrai e normaliza o bit 5 da imagem
+img5 = normalize(np.bitwise_and(img, bin5))
 
-# Extrai o bit 7 da imagem e normaliza para o intervalo [0, 255]
-img7 = np.bitwise_and(img, bin7)
-img7 = (img7 - img7.min()) / (img7.max() - img7.min()) * 255
+# Extrai e normaliza o bit 6 da imagem
+img6 = normalize(np.bitwise_and(img, bin6))
+
+# Extrai e normaliza o bit 7 da imagem
+img7 = normalize(np.bitwise_and(img, bin7))
 
 # Cria uma grade de subplots para exibir as imagens
 fig, axs = plt.subplots(3, 3, figsize=(10, 10))

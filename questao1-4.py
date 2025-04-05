@@ -16,7 +16,7 @@ sepia_matrix = np.array([
 sepia_img = np.dot(img, sepia_matrix.T)
 
 # Normaliza os valores da imagem sépia para o intervalo de 0 a 255
-sepia_img = (sepia_img - sepia_img.min()) / (sepia_img.max() - sepia_img.min()) * 255
+sepia_img = np.interp(sepia_img, (sepia_img.min(), sepia_img.max()), (0, 255))
 sepia_img = sepia_img.astype(np.uint8)  # Converte os valores para inteiros de 8 bits
 
 # Exibe a imagem original e a imagem com efeito sépia lado a lado

@@ -32,12 +32,12 @@ mosaico = blocos[nova_ordem//4, nova_ordem%4].transpose(0, 2, 1, 3).reshape(altu
 fig, axs = plt.subplots(1, 2, figsize=(10, 5))
 
 # Exibe a imagem original
-axs[0].imshow(img, cmap=plt.get_cmap('gray'))
+axs[0].imshow(img, cmap=plt.get_cmap('gray'), vmin=0, vmax=255)
 axs[0].set_title('Original')
 axs[0].axis('off')
 
 # Exibe a imagem em mosaico
-axs[1].imshow(mosaico, cmap=plt.get_cmap('gray'))
+axs[1].imshow(mosaico, cmap=plt.get_cmap('gray'), vmin=0, vmax=255)
 axs[1].set_title('Mosaico')
 axs[1].axis('off')
 

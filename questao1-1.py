@@ -7,14 +7,12 @@ img = np.array(Image.open('watch.png').convert('RGB'))
 
 def rgb2gray(rgb):
     rgb_img = np.dot(rgb[...,:3], [0.2989, 0.5870, 0.1140])
-    rgb_img = (rgb_img - rgb_img.min()) / (rgb_img.max() - rgb_img.min()) * 255
+    rgb_img = np.interp(rgb_img, (rgb_img.min(), rgb_img.max()), (0, 255))
     rgb_img = rgb_img.astype(np.uint8)
     return rgb_img
 
 gray = rgb2gray(img)
-print(gray.max(), gray.min())
 blurred = gaussian_filter(gray, sigma=21/6)
-print(blurred.max(), blurred.min())
 
 fig, axs = plt.subplots(1, 3, figsize=(15, 5))
 
